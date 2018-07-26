@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Our Voting App</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="scripts.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+          <div class="row">
+            <div class="col s12 offset-s3">
+                <h1>Our Voting app</h1>
+                <h5>Vote for your candidate</h5>
+            </div>
+          </div>
+            <div class="row">
+              <div class="col s6">
+                  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted == true){alert('Thanks for voting');document.getElementsByTagName('form')[0].style.display='none';setInterval(g,200)}"></iframe>
+                  <form action="https://pdkyz4p183.execute-api.us-east-2.amazonaws.com/prod/submitvote" method="POST" target="hidden_iframe" onsubmit="submitted=true">
+                      <p>
+                          <input type="radio" name="vote" id="Cobra" value="Cobra Commander">
+                          <label for="Cobra">Cobra Commander</label>
+                      </p>
+                      <p>
+                          <input type="radio" name="vote" id="deeznuts" value="Deez Nuts">
+                          <label for="deeznuts">Deez Nuts</label>
+                      </p>
+                      <p>
+                          <input type="radio" name="vote" id="molly" value="Molly the Dog">
+                          <label for="molly">Molly the Dog</label>
+                      </p>
+                      <p>
+                          <input type="radio" name="vote" id="frank" value="Frank Underwood">
+                          <label for="frank">Frank Underwood</label>
+                      </p>
+                      <input type="submit" value="Vote" class="btn">
+                  </form>
+              </div>
+              <div class="col s6">
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+              </div>
+            </div>
+          </div>
+
+    </body>
+</html>
